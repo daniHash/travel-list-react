@@ -2,6 +2,7 @@ import { useState } from "react";
 import Item from "./item";
 const PackingList = ({ items, onDeleteItem, onCompleteItem, onClearList }) => {
   const [sortBy, setSortBy] = useState("input");
+  localStorage.setItem("items", JSON.stringify(items));
   let sortedItems;
 
   switch (sortBy) {
@@ -17,7 +18,6 @@ const PackingList = ({ items, onDeleteItem, onCompleteItem, onClearList }) => {
       sortedItems = [...items].sort((a, b) => +a.packed - +b.packed);
       break;
   }
-
   return (
     <div className="list">
       <ul className="list">

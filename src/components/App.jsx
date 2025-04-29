@@ -5,7 +5,10 @@ import Form from "./form";
 import Packing from "./packinglist";
 
 const App = () => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("items")) || []
+  );
+
   const handleAddItem = (item) => {
     setItems((items) => [...items, item]);
   };

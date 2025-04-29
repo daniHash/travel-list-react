@@ -5,6 +5,7 @@ const Item = ({ item, onDeleteItem, onCompleteItem }) => {
         type="checkbox"
         value={item.packed}
         onChange={() => onCompleteItem(item.id)}
+        checked={item.packed}
       />
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.count} {item.description}
